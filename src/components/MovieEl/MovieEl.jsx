@@ -1,7 +1,7 @@
-// import { useState } from 'react';
 // import { Container } from './HomeStyled';
 
 const MovieEl = ({ movie }) => {
+  // console.log(movie);
   const {
     id,
     original_title,
@@ -18,7 +18,10 @@ const MovieEl = ({ movie }) => {
 
   console.log(genres);
 
-  const genre = genres.map(genre => genre.name);
+  const genre = () =>
+    genres.map(genre => {
+      return genre.name;
+    });
 
   console.log(genre);
 
@@ -37,8 +40,8 @@ const MovieEl = ({ movie }) => {
       <p>User Score: {score}%</p>
       <h2>Overview</h2>
       <p>{overview}</p>
-      <h2>Genres</h2>
-      <p>{genre.join(', ')}</p>
+      <h3>Genres</h3>
+      {/* <p>{genre.join(', ')}</p> */}
     </div>
   );
 };
