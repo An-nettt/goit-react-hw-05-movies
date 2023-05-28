@@ -21,7 +21,7 @@ const MovieDetails = () => {
         .then(movieEl => {
           const {
             id,
-            original_title,
+            title,
             overview,
             genres,
             vote_average,
@@ -30,7 +30,7 @@ const MovieDetails = () => {
           } = movieEl;
           setMovie({
             id,
-            original_title,
+            title,
             overview,
             genres,
             vote_average,
