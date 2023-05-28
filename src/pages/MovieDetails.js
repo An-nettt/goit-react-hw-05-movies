@@ -19,8 +19,24 @@ const MovieDetails = () => {
           return response.json();
         })
         .then(movieEl => {
-          const { id, original_title, overview, genres } = movieEl;
-          setMovie({ id, original_title, overview, genres });
+          const {
+            id,
+            original_title,
+            overview,
+            genres,
+            vote_average,
+            release_date,
+            poster_path,
+          } = movieEl;
+          setMovie({
+            id,
+            original_title,
+            overview,
+            genres,
+            vote_average,
+            release_date,
+            poster_path,
+          });
         })
         .catch(error => {
           console.log(error);
