@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types'
 
 import { getTrendingMovies } from '../services/getTrending';
-import TrendMoviesList from '../components/Home/TrendMovies';
+import TrendMoviesList from '../components/TrendMoviesList/TrendMoviesList';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -17,7 +17,10 @@ const Home = () => {
           return response.json();
         })
         .then(movies => {
-          return movies.results;
+          return movies.results.map(({ id, title }) => ({
+            id,
+            title,
+          }));
         })
         .then(movies => {
           setMovies(movies);

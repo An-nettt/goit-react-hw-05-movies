@@ -1,14 +1,14 @@
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import { Container } from './HomeStyled';
 
 const TrendMoviesList = ({ movies }) => {
   return (
     <ul>
-      {movies.map(({ id, title, poster_path }) => {
+      {movies.map(({ id, title }) => {
         return (
-          <li key={id}>
+          <Link key={id} to={`/movies/${id}`}>
             <p>{title}</p>
-          </li>
+          </Link>
         );
       })}
     </ul>
