@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 // import { Container } from './HomeStyled';
 
-const TrendMoviesList = ({ movies }) => {
+const MoviesList = ({ movies }) => {
   return (
     <ul>
       {movies.map(({ id, title }) => {
@@ -15,4 +15,4 @@ const TrendMoviesList = ({ movies }) => {
   );
 };
 
-export default TrendMoviesList;
+export default MoviesList;

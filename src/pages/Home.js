@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types'
 
 import { getTrendingMovies } from '../services/getMovies';
-import TrendMoviesList from '../components/TrendMoviesList/TrendMoviesList';
+import MoviesList from '../components/MoviesList/MoviesList';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -35,7 +35,7 @@ const Home = () => {
   return (
     <div>
       <h1>Trending today</h1>
-      <TrendMoviesList movies={movies} />
+      <MoviesList movies={movies} />
     </div>
   );
 };
