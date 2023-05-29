@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types'
 
-import { getTrendingMovies } from '../services/getTrending';
+import { getTrendingMovies } from '../services/getMovies';
 import TrendMoviesList from '../components/TrendMoviesList/TrendMoviesList';
 
 const Home = () => {
@@ -33,10 +33,10 @@ const Home = () => {
   }, []);
 
   return (
-    <main>
+    <div>
       <h1>Trending today</h1>
       <TrendMoviesList movies={movies} />
-    </main>
+    </div>
   );
 };
 

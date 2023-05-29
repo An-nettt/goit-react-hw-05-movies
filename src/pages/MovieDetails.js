@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { getMovieDetails } from '../services/getTrending';
+import { getMovieDetails } from '../services/getMovies';
 import MovieEl from '../components/MovieEl/MovieEl';
 
 const MovieDetails = () => {
@@ -45,11 +45,7 @@ const MovieDetails = () => {
     fetchDetails();
   }, [id]);
 
-  return (
-    <main>
-      <MovieEl movie={movie} />
-    </main>
-  );
+  return <MovieEl movie={movie} />;
 };
 
 export default MovieDetails;
