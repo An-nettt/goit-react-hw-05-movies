@@ -60,19 +60,3 @@ const Movies = () => {
 };
 
 export default Movies;
-
-//   return (
-//     <>
-//       <button type="button">Go back</button>
-//       <MovieEl movie={movie} />
-//       <ul>
-//         <li>
-//           <Link to="cast">Cast</Link>
-//         </li>
-//         <li>
-//           <Link to="reviews">Reviews</Link>
-//         </li>
-//       </ul>
-//       <Outlet />
-//     </>
-//   );
