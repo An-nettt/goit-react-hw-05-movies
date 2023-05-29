@@ -11,7 +11,7 @@ const MovieEl = ({ movie }) => {
     genres,
   } = movie;
 
-  const score = vote_average * 10;
+  const score = Math.round(vote_average * 10);
 
   const year = new Date(Date.parse(release_date)).getFullYear();
 

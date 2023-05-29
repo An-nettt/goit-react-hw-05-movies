@@ -1,8 +1,45 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import { getCast } from '../../services/getMovies';
+import CastEl from '../CastEl/CastEl';
+
 const Cast = () => {
+  const [cast, setCast] = useState([]);
   const { id } = useParams();
-  return <div>Cast: {id}</div>;
+
+  useEffect(() => {
+    const fetchCast = () => {
+      getCast(id)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(response.status);
+          }
+          return response.json();
+        })
+        .then(castEl => {
+          return castEl.cast.map(({ id, name, character, profile_path }) => ({
+            id,
+            name,
+            character,
+            profile_path,
+          }));
+        })
+        .then(castEl => {
+          setCast(castEl);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    };
+    fetchCast();
+  }, [id]);
+
+  return (
+    <ul>
+      <CastEl cast={cast} />
+    </ul>
+  );
 };
 
 export default Cast;

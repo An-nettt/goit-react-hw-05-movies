@@ -47,6 +47,7 @@ const MovieDetails = () => {
 
   return (
     <>
+      <button type="button">Go back</button>
       <MovieEl movie={movie} />
       <ul>
         <li>
