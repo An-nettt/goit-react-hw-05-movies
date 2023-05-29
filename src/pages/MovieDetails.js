@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 
 import { getMovieDetails } from '../services/getMovies';
 import MovieEl from '../components/MovieEl/MovieEl';
@@ -45,7 +45,20 @@ const MovieDetails = () => {
     fetchDetails();
   }, [id]);
 
-  return <MovieEl movie={movie} />;
+  return (
+    <>
+      <MovieEl movie={movie} />
+      <ul>
+        <li>
+          <Link to="cast">Cast</Link>
+        </li>
+        <li>
+          <Link to="reviews">Reviews</Link>
+        </li>
+      </ul>
+      <Outlet />
+    </>
+  );
 };
 
 export default MovieDetails;
