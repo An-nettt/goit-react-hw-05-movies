@@ -36,7 +36,11 @@ const Reviews = () => {
 
   return (
     <ul>
-      <ReviewsEl reviews={reviews} />
+      {reviews.length === 0 ? (
+        <p>We don`t have any reviews for this movie</p>
+      ) : (
+        <ReviewsEl reviews={reviews} />
+      )}
     </ul>
   );
 };
