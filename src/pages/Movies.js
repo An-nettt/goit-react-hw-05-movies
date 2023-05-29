@@ -11,8 +11,6 @@ const Movies = () => {
   const newQuery = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    // const query = searchParams.get('query');
-    console.log(newQuery);
     const fetchSearchMovie = () => {
       getSearchMovie(newQuery)
         .then(response => {
@@ -37,18 +35,12 @@ const Movies = () => {
     fetchSearchMovie();
   }, [newQuery]);
 
-  console.log(searchParams.get('query'));
-
   const handleQueryChange = event => {
     setQueryEl(event.currentTarget.value.toLowerCase());
   };
 
   const handleSearch = () => {
-    // if (query.trim() === '') {
-    //   return;
-    // }
     setSearchParams({ query: queryEl });
-    // onSubmit(query);
   };
 
   return (
