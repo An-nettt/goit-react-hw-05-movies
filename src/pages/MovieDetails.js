@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 
 import { getMovieDetails } from '../services/getMovies';
 import MovieEl from '../components/MovieEl/MovieEl';
 
 const MovieDetails = () => {
+  const location = useLocation();
+  const goBackLocationRef = useRef(location.state?.from ?? '/');
+
   const [movie, setMovie] = useState([]);
 
   const { id } = useParams();
@@ -47,7 +50,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <button type="button">Go back</button>
+      <Link to={goBackLocationRef.current}>Go back</Link>
       <MovieEl movie={movie} />
       <ul>
         <li>
