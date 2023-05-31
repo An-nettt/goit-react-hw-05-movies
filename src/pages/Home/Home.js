@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 
 import PropTypes from 'prop-types';
+import { Title } from './HomeStyled';
 
-import { getTrendingMovies } from '../services/getMovies';
-import MoviesList from '../components/MoviesList/MoviesList';
+import { getTrendingMovies } from '../../services/getMovies';
+import MoviesList from '../../components/MoviesList/MoviesList';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -35,7 +36,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Trending today</h1>
+      <Title> Trending today</Title>
       <MoviesList movies={movies} />
     </div>
   );

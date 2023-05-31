@@ -9,6 +9,7 @@ export const Card = styled.div`
 
 export const Poster = styled.img`
   margin-top: 20px;
+  margin-left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,12 +29,17 @@ export const Title = styled.h1`
 export const Scores = styled.p`
   display: flex;
   gap: 16px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 35px;
+`;
+
+export const ScoresNumber = styled.span`
+  font-weight: 600;
 `;
 
 export const GenresEl = styled.div`
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
   display: flex;
   gap: 16px;
 `;

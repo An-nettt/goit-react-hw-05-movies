@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { getSearchMovie } from '../services/getMovies';
-import MoviesList from '../components/MoviesList/MoviesList';
+import { GoBackLink } from './MoviesStyled';
+
+import { getSearchMovie } from '../../services/getMovies';
+import MoviesList from '../../components/MoviesList/MoviesList';
 
 const Movies = () => {
   const [queryEl, setQueryEl] = useState('');

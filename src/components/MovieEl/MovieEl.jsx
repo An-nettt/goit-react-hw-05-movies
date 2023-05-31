@@ -5,6 +5,7 @@ import {
   Details,
   Title,
   Scores,
+  ScoresNumber,
   GenresEl,
   Overview,
 } from './MovieElStyled';
@@ -35,12 +36,14 @@ const MovieEl = ({ movie }) => {
         <Title>
           {title} ({year})
         </Title>
-        <Scores>User Score: {score}%</Scores>
-        <h2>Genres</h2>
+        <Scores>
+          User Score:<ScoresNumber>{score}%</ScoresNumber>
+        </Scores>
+        <h3>Genres</h3>
         <GenresEl>
           {genres && genres.map(({ name }) => <p key={name}>{name}</p>)}
         </GenresEl>
-        <h2>Overview</h2>
+        <h3>Overview</h3>
         <Overview>{overview}</Overview>
       </Details>
     </Card>

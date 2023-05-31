@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {
   GoBackLink,
   AdditionalInfo,
+  AdditionalInfoTitle,
   LinkList,
   MovieItem,
   StyledLink,
@@ -62,7 +63,7 @@ const MovieDetails = () => {
       <GoBackLink to={goBackLocationRef.current}>Go back</GoBackLink>
       <MovieEl movie={movie} />
       <AdditionalInfo>
-        <h4>Additional information</h4>
+        <AdditionalInfoTitle>Additional information</AdditionalInfoTitle>
         <LinkList>
           <MovieItem>
             <StyledLink to="cast">Cast</StyledLink>
