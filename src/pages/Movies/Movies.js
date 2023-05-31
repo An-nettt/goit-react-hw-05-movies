@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+import Loader from '../../components/Loader/Loader';
 import { Input, Button } from './MoviesStyled';
 
 import { getSearchMovie } from '../../services/getMovies';
@@ -9,11 +10,13 @@ import MoviesList from '../../components/MoviesList/MoviesList';
 const Movies = () => {
   const [queryEl, setQueryEl] = useState('');
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const newQuery = searchParams.get('query') ?? '';
 
   useEffect(() => {
     const fetchSearchMovie = () => {
+      setIsLoading(true);
       getSearchMovie(newQuery)
         .then(response => {
           if (!response.ok) {
@@ -32,6 +35,9 @@ const Movies = () => {
         })
         .catch(error => {
           console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     };
     fetchSearchMovie();
@@ -47,6 +53,7 @@ const Movies = () => {
 
   return (
     <div>
+      {isLoading && <Loader />}
       <Input
         type="text"
         value={queryEl}
