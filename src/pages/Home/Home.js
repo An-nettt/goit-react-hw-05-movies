@@ -5,12 +5,15 @@ import { Title } from './HomeStyled';
 
 import { getTrendingMovies } from '../../services/getMovies';
 import MoviesList from '../../components/MoviesList/MoviesList';
+import Loader from '../../components/Loader/Loader';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchTrending = () => {
+      setIsLoading(true);
       getTrendingMovies()
         .then(response => {
           if (!response.ok) {
@@ -29,6 +32,9 @@ const Home = () => {
         })
         .catch(error => {
           console.log(error);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     };
     fetchTrending();
@@ -36,6 +42,7 @@ const Home = () => {
 
   return (
     <div>
+      {isLoading && <Loader />}
       <Title> Trending today</Title>
       <MoviesList movies={movies} />
     </div>
