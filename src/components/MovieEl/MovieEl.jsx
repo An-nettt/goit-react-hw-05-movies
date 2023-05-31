@@ -7,6 +7,7 @@ import {
   Scores,
   ScoresNumber,
   GenresEl,
+  Genre,
   Overview,
 } from './MovieElStyled';
 
@@ -41,7 +42,7 @@ const MovieEl = ({ movie }) => {
         </Scores>
         <h3>Genres</h3>
         <GenresEl>
-          {genres && genres.map(({ name }) => <p key={name}>{name}</p>)}
+          {genres && genres.map(({ name }) => <Genre key={name}>{name}</Genre>)}
         </GenresEl>
         <h3>Overview</h3>
         <Overview>{overview}</Overview>

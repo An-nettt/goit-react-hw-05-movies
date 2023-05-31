@@ -41,7 +41,15 @@ export const GenresEl = styled.div`
   margin-top: 5px;
   margin-bottom: 35px;
   display: flex;
-  gap: 16px;
+  gap: 5px;
+`;
+
+export const Genre = styled.p`
+  border: 1px solid #04284e;
+  border-radius: 4px;
+  /* background-color: #04284e; */
+  color: #04284e;
+  padding: 5px 12px;
 `;
 
 export const Overview = styled.p`

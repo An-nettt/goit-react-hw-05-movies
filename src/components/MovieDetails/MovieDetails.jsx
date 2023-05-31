@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 
 import PropTypes from 'prop-types';
 import {
@@ -74,7 +75,7 @@ const MovieDetails = () => {
         </LinkList>
       </AdditionalInfo>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>
