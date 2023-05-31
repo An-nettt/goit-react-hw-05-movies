@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import {
   CastItemEl,
+  Photo,
   NameEl,
   CharacterEl,
   CharacterNameEl,
@@ -12,7 +13,7 @@ const CastEl = ({ cast }) => {
       {cast.map(({ id, name, character, profile_path }) => {
         return (
           <CastItemEl key={id}>
-            <img
+            <Photo
               src={`https://image.tmdb.org/t/p/w200${profile_path}`}
               alt={name}
             />

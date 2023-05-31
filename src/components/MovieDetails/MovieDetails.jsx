@@ -1,8 +1,17 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
 
-import { getMovieDetails } from '../services/getMovies';
-import MovieEl from '../components/MovieEl/MovieEl';
+import PropTypes from 'prop-types';
+import {
+  GoBackLink,
+  AdditionalInfo,
+  LinkList,
+  MovieItem,
+  StyledLink,
+} from './MovieDetailsStyled';
+
+import { getMovieDetails } from '../../services/getMovies';
+import MovieEl from '../MovieEl/MovieEl';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -50,16 +59,20 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={goBackLocationRef.current}>Go back</Link>
+      <GoBackLink to={goBackLocationRef.current}>Go back</GoBackLink>
       <MovieEl movie={movie} />
-      <ul>
-        <li>
-          <Link to="cast">Cast</Link>
-        </li>
-        <li>
-          <Link to="reviews">Reviews</Link>
-        </li>
-      </ul>
+      <AdditionalInfo>
+        <h4>Additional information</h4>
+        <LinkList>
+          <MovieItem>
+            <StyledLink to="cast">Cast</StyledLink>
+          </MovieItem>
+          <MovieItem>
+            <StyledLink to="reviews">Reviews</StyledLink>
+          </MovieItem>
+        </LinkList>
+      </AdditionalInfo>
+
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense>
@@ -68,3 +81,8 @@ const MovieDetails = () => {
 };
 
 export default MovieDetails;
+
+MovieDetails.propTypes = {
+  movie: PropTypes.arrayOf(PropTypes.string),
+  id: PropTypes.number.isRequired,
+};

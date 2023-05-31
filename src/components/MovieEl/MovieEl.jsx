@@ -1,5 +1,13 @@
 import PropTypes from 'prop-types';
-// import { Container } from './HomeStyled';
+import {
+  Card,
+  Poster,
+  Details,
+  Title,
+  Scores,
+  GenresEl,
+  Overview,
+} from './MovieElStyled';
 
 const MovieEl = ({ movie }) => {
   const {
@@ -17,17 +25,25 @@ const MovieEl = ({ movie }) => {
   const year = new Date(Date.parse(release_date)).getFullYear();
 
   return (
-    <div key={id}>
-      <h1>
-        {title} ({year})
-      </h1>
-      <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} alt={title} />
-      <p>User Score: {score}%</p>
-      <h3>Genres</h3>
-      <>{genres && genres.map(({ name }) => <p key={name}>{name}</p>)}</>
-      <h2>Overview</h2>
-      <p>{overview}</p>
-    </div>
+    <Card key={id}>
+      <Poster
+        src={`https://image.tmdb.org/t/p/w300/${poster_path}`}
+        alt={title}
+      />
+
+      <Details>
+        <Title>
+          {title} ({year})
+        </Title>
+        <Scores>User Score: {score}%</Scores>
+        <h2>Genres</h2>
+        <GenresEl>
+          {genres && genres.map(({ name }) => <p key={name}>{name}</p>)}
+        </GenresEl>
+        <h2>Overview</h2>
+        <Overview>{overview}</Overview>
+      </Details>
+    </Card>
   );
 };
 

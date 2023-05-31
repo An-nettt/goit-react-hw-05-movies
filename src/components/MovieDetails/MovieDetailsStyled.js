@@ -1,0 +1,44 @@
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+export const GoBackLink = styled(Link)`
+  display: flex;
+  width: 60px;
+  margin-top: 20px;
+  /* margin-bottom: 20px; */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* background: #eaeaea; */
+  background-color: #0a0a23;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+`;
+
+export const AdditionalInfo = styled.div`
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  gap: 10px;
+`;
+
+export const LinkList = styled.ul`
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+`;
+
+export const MovieItem = styled.li`
+  list-style: none;
+`;
+
+export const StyledLink = styled(Link)`
+  margin-top: 40px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  /* background: #eaeaea; */
+  background-color: #0a0a23;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+`;
