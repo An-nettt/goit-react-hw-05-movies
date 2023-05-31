@@ -13,5 +13,5 @@ export const StyledLink = styled(Link)`
 
 export const MovieTitle = styled.p`
   margin-bottom: 10px;
-  color: #0a0a23;
+  color: #04284e;
 `;

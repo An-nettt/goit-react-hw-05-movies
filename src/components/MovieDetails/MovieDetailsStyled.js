@@ -9,7 +9,7 @@ export const GoBackLink = styled(Link)`
   border: 1px solid #ccc;
   border-radius: 4px;
   /* background: #eaeaea; */
-  background-color: #0a0a23;
+  background-color: #04284e;
   color: #fff;
   padding: 5px 10px;
   text-decoration: none;
@@ -43,7 +43,7 @@ export const MovieItem = styled.li`
 export const StyledLink = styled(Link)`
   border: 1px solid #ccc;
   border-radius: 4px;
-  background-color: #0a0a23;
+  background-color: #04284e;
   color: #fff;
   padding: 5px 10px;
   text-decoration: none;
