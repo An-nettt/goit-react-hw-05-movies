@@ -1,14 +1,15 @@
-// import { Container } from './HomeStyled';
+import PropTypes from 'prop-types';
+import { ReviewsItem } from './ReviewsElStyled';
 
 const ReviewsEl = ({ reviews }) => {
   return (
     <>
       {reviews.map(({ id, author, content }) => {
         return (
-          <li key={id}>
+          <ReviewsItem key={id}>
             <h3>Author: {author}</h3>
             <p>'{content}'</p>
-          </li>
+          </ReviewsItem>
         );
       })}
     </>
@@ -16,3 +17,10 @@ const ReviewsEl = ({ reviews }) => {
 };
 
 export default ReviewsEl;
+
+ReviewsEl.propTypes = {
+  reviews: PropTypes.arrayOf(PropTypes.string),
+  id: PropTypes.number.isRequired,
+  author: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};

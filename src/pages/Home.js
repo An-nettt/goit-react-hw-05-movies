@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 import { getTrendingMovies } from '../services/getMovies';
 import MoviesList from '../components/MoviesList/MoviesList';
@@ -42,3 +42,7 @@ const Home = () => {
 };
 
 export default Home;
+
+Home.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.string),
+};

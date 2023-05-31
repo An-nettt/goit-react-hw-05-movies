@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 // import { Container } from './HomeStyled';
 
 const MovieEl = ({ movie }) => {
@@ -31,3 +32,14 @@ const MovieEl = ({ movie }) => {
 };
 
 export default MovieEl;
+
+MovieEl.propTypes = {
+  movie: PropTypes.arrayOf(PropTypes.string),
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  overview: PropTypes.string.isRequired,
+  vote_average: PropTypes.string.isRequired,
+  release_date: PropTypes.string.isRequired,
+  poster_path: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string),
+};

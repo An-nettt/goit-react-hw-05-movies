@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import PropTypes from 'prop-types';
+import { CastList } from './CastStyled';
+
 import { getCast } from '../../services/getMovies';
 import CastEl from '../CastEl/CastEl';
 
@@ -36,10 +39,15 @@ const Cast = () => {
   }, [id]);
 
   return (
-    <ul>
+    <CastList>
       <CastEl cast={cast} />
-    </ul>
+    </CastList>
   );
 };
 
 export default Cast;
+
+Cast.propTypes = {
+  cast: PropTypes.arrayOf(PropTypes.string),
+  id: PropTypes.number.isRequired,
+};
