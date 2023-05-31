@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import { GoBackLink } from './MoviesStyled';
+import { Input, Button } from './MoviesStyled';
 
 import { getSearchMovie } from '../../services/getMovies';
 import MoviesList from '../../components/MoviesList/MoviesList';
@@ -47,15 +47,15 @@ const Movies = () => {
 
   return (
     <div>
-      <input
+      <Input
         type="text"
         value={queryEl}
         placeholder="Enter the name of the movie..."
         onChange={handleQueryChange}
       />
-      <button type="button" onClick={handleSearch}>
+      <Button type="button" onClick={handleSearch}>
         Search
-      </button>
+      </Button>
       <MoviesList movies={movies} />
     </div>
   );
