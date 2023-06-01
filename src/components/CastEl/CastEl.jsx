@@ -12,13 +12,12 @@ const CastEl = ({ cast }) => {
   return (
     <>
       {cast.map(({ id, name, character, profile_path }) => {
+        const img = profile_path
+          ? `https://image.tmdb.org/t/p/w200${profile_path}`
+          : noPhoto;
         return (
           <CastItemEl key={id}>
-            <Photo
-              src={noPhoto}
-              // src={`https://image.tmdb.org/t/p/w200${profile_path}`}
-              alt={name}
-            />
+            <Photo src={img} alt={name} />
             <NameEl>{name}</NameEl>
             <CharacterEl>
               Character: <CharacterNameEl>{character}</CharacterNameEl>
@@ -39,3 +38,10 @@ CastEl.propTypes = {
   character: PropTypes.string.isRequired,
   profile_path: PropTypes.string.isRequired,
 };
+
+// {cast.profile_path ? (
+//                 src = { noPhoto }
+
+//       ) : (
+//         src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+//       )}
