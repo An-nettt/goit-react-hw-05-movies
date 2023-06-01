@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 import Loader from '../../components/Loader/Loader';
 import { Input, Button } from './MoviesStyled';
@@ -8,7 +9,6 @@ import { getSearchMovie } from '../../services/getMovies';
 import MoviesList from '../../components/MoviesList/MoviesList';
 
 const Movies = () => {
-  const [queryEl, setQueryEl] = useState('');
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -43,26 +43,33 @@ const Movies = () => {
     fetchSearchMovie();
   }, [newQuery]);
 
-  const handleQueryChange = event => {
-    setQueryEl(event.currentTarget.value.toLowerCase());
-  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      search: '',
+    },
+  });
 
-  const handleSearch = () => {
-    setSearchParams({ query: queryEl });
+  const handleSearch = element => {
+    setSearchParams({ query: element.querySearch });
   };
 
   return (
     <div>
       {isLoading && <Loader />}
-      <Input
-        type="text"
-        value={queryEl}
-        placeholder="Enter the name of the movie..."
-        onChange={handleQueryChange}
-      />
-      <Button type="button" onClick={handleSearch}>
-        Search
-      </Button>
+      <form onSubmit={handleSubmit(handleSearch)}>
+        <Input
+          placeholder="Enter the name of the movie..."
+          {...register('querySearch')}
+          defaultValue=""
+        />
+
+        {errors.search && <p>This field is required</p>}
+        <Button type="submit">Search</Button>
+      </form>
       <MoviesList movies={movies} />
     </div>
   );

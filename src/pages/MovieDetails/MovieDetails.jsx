@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
-import Loader from '../Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 
 import PropTypes from 'prop-types';
 import {
@@ -13,7 +13,7 @@ import {
 } from './MovieDetailsStyled';
 
 import { getMovieDetails } from '../../services/getMovies';
-import MovieEl from '../MovieEl/MovieEl';
+import MovieEl from '../../components/MovieEl/MovieEl';
 
 const MovieDetails = () => {
   const location = useLocation();

@@ -6,6 +6,7 @@ import {
   CharacterEl,
   CharacterNameEl,
 } from './CastElStyled';
+import noPhoto from 'images/no-photo.jpg';
 
 const CastEl = ({ cast }) => {
   return (
@@ -14,7 +15,8 @@ const CastEl = ({ cast }) => {
         return (
           <CastItemEl key={id}>
             <Photo
-              src={`https://image.tmdb.org/t/p/w200${profile_path}`}
+              src={noPhoto}
+              // src={`https://image.tmdb.org/t/p/w200${profile_path}`}
               alt={name}
             />
             <NameEl>{name}</NameEl>
