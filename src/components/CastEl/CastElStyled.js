@@ -29,4 +29,5 @@ export const CharacterNameEl = styled.span`
 
 export const Photo = styled.img`
   width: 100%;
+  height: 167px;
 `;
