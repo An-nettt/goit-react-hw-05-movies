@@ -20,6 +20,7 @@ const MovieDetails = () => {
   const goBackLocationRef = useRef(location.state?.from ?? '/');
 
   const [movie, setMovie] = useState([]);
+  const [error, setError] = useState('');
 
   const { id } = useParams();
 
@@ -27,12 +28,14 @@ const MovieDetails = () => {
     const fetchDetails = () => {
       getMovieDetails(id)
         .then(response => {
+          console.log(response.status);
           if (!response.ok) {
             throw new Error(response.status);
           }
           return response.json();
         })
         .then(movieEl => {
+          console.log(movieEl);
           const {
             id,
             title,
@@ -41,6 +44,7 @@ const MovieDetails = () => {
             vote_average,
             release_date,
             poster_path,
+            success,
           } = movieEl;
           setMovie({
             id,
@@ -50,34 +54,44 @@ const MovieDetails = () => {
             vote_average,
             release_date,
             poster_path,
+            success,
           });
         })
         .catch(error => {
+          setError(error);
           console.log(error);
         });
     };
     fetchDetails();
   }, [id]);
 
+  console.log(error);
+
   return (
     <>
-      <GoBackLink to={goBackLocationRef.current}>Go back</GoBackLink>
-      <MovieEl movie={movie} />
-      <AdditionalInfo>
-        <AdditionalInfoTitle>Additional information</AdditionalInfoTitle>
-        <LinkList>
-          <MovieItem>
-            <StyledLink to="cast">Cast</StyledLink>
-          </MovieItem>
-          <MovieItem>
-            <StyledLink to="reviews">Reviews</StyledLink>
-          </MovieItem>
-        </LinkList>
-      </AdditionalInfo>
+      {error ? (
+        <p>The resource you requested could not be found.</p>
+      ) : (
+        <>
+          <GoBackLink to={goBackLocationRef.current}>Go back</GoBackLink>
+          <MovieEl movie={movie} />
+          <AdditionalInfo>
+            <AdditionalInfoTitle>Additional information</AdditionalInfoTitle>
+            <LinkList>
+              <MovieItem>
+                <StyledLink to="cast">Cast</StyledLink>
+              </MovieItem>
+              <MovieItem>
+                <StyledLink to="reviews">Reviews</StyledLink>
+              </MovieItem>
+            </LinkList>
+          </AdditionalInfo>
 
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
+        </>
+      )}
     </>
   );
 };

@@ -48,6 +48,7 @@ const MovieEl = ({ movie }) => {
         <Overview>{overview}</Overview>
       </Details>
     </Card>
+    //     )}
   );
 };
 
