@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ReviewsList } from './ReviewsStyled';
 
-import { getReviews } from '../../services/getMovies';
+import { getReviews } from 'services/getMovies';
 import ReviewsEl from '../ReviewsEl/ReviewsEl';
 
 const Reviews = () => {

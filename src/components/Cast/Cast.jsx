@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { CastList } from './CastStyled';
 
-import { getCast } from '../../services/getMovies';
+import { getCast } from 'services/getMovies';
 import CastEl from '../CastEl/CastEl';
 
 const Cast = () => {

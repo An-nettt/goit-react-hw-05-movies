@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
-import Loader from '../../components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 
 import PropTypes from 'prop-types';
 import {
@@ -12,8 +12,8 @@ import {
   StyledLink,
 } from './MovieDetailsStyled';
 
-import { getMovieDetails } from '../../services/getMovies';
-import MovieEl from '../../components/MovieEl/MovieEl';
+import { getMovieDetails } from 'services/getMovies';
+import MovieEl from 'components/MovieEl/MovieEl';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -35,7 +35,6 @@ const MovieDetails = () => {
           return response.json();
         })
         .then(movieEl => {
-          console.log(movieEl);
           const {
             id,
             title,
@@ -64,8 +63,6 @@ const MovieDetails = () => {
     };
     fetchDetails();
   }, [id]);
-
-  console.log(error);
 
   return (
     <>

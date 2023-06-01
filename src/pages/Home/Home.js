@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Title } from './HomeStyled';
 
-import { getTrendingMovies } from '../../services/getMovies';
-import MoviesList from '../../components/MoviesList/MoviesList';
-import Loader from '../../components/Loader/Loader';
+import { getTrendingMovies } from 'services/getMovies';
+import MoviesList from 'components/MoviesList/MoviesList';
+import Loader from 'components/Loader/Loader';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);

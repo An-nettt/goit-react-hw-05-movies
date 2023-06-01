@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
-import Loader from '../../components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import { Input, Button } from './MoviesStyled';
 
-import { getSearchMovie } from '../../services/getMovies';
-import MoviesList from '../../components/MoviesList/MoviesList';
+import { getSearchMovie } from 'services/getMovies';
+import MoviesList from 'components/MoviesList/MoviesList';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
