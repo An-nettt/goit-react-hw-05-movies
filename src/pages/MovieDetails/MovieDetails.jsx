@@ -28,7 +28,6 @@ const MovieDetails = () => {
     const fetchDetails = () => {
       getMovieDetails(id)
         .then(response => {
-          console.log(response.status);
           if (!response.ok) {
             throw new Error(response.status);
           }
