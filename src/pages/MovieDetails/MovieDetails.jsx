@@ -27,33 +27,8 @@ const MovieDetails = () => {
   useEffect(() => {
     const fetchDetails = () => {
       getMovieDetails(id)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(response.status);
-          }
-          return response.json();
-        })
         .then(movieEl => {
-          const {
-            id,
-            title,
-            overview,
-            genres,
-            vote_average,
-            release_date,
-            poster_path,
-            success,
-          } = movieEl;
-          setMovie({
-            id,
-            title,
-            overview,
-            genres,
-            vote_average,
-            release_date,
-            poster_path,
-            success,
-          });
+          setMovie(movieEl);
         })
         .catch(error => {
           setError(error);

@@ -14,12 +14,6 @@ const Reviews = () => {
   useEffect(() => {
     const fetchReviews = () => {
       getReviews(id)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(response.status);
-          }
-          return response.json();
-        })
         .then(reviewsEl => {
           return reviewsEl.results.map(({ id, author, content }) => ({
             id,

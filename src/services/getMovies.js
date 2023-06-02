@@ -8,21 +8,54 @@ const REVIEWS = '/reviews';
 const SEARCH = 'search/movie?query=';
 
 export const getTrendingMovies = () => {
-  return fetch(`${BASE_URL}${TREND}?api_key=${API_KEY}`);
+  return fetch(`${BASE_URL}${TREND}?api_key=${API_KEY}`).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
 };
 
 export const getMovieDetails = id => {
-  return fetch(`${BASE_URL}${MOVIE_DETAILS}${id}?api_key=${API_KEY}`);
+  return fetch(`${BASE_URL}${MOVIE_DETAILS}${id}?api_key=${API_KEY}`).then(
+    response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    }
+  );
 };
 
 export const getCast = id => {
-  return fetch(`${BASE_URL}${MOVIE_DETAILS}${id}${CAST}?api_key=${API_KEY}`);
+  return fetch(
+    `${BASE_URL}${MOVIE_DETAILS}${id}${CAST}?api_key=${API_KEY}`
+  ).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
 };
 
 export const getReviews = id => {
-  return fetch(`${BASE_URL}${MOVIE_DETAILS}${id}${REVIEWS}?api_key=${API_KEY}`);
+  return fetch(
+    `${BASE_URL}${MOVIE_DETAILS}${id}${REVIEWS}?api_key=${API_KEY}`
+  ).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
 };
 
 export const getSearchMovie = query => {
-  return fetch(`${BASE_URL}${SEARCH}${query}&api_key=${API_KEY}`);
+  return fetch(`${BASE_URL}${SEARCH}${query}&api_key=${API_KEY}`).then(
+    response => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    }
+  );
 };

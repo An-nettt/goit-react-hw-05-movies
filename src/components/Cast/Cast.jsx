@@ -14,12 +14,6 @@ const Cast = () => {
   useEffect(() => {
     const fetchCast = () => {
       getCast(id)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(response.status);
-          }
-          return response.json();
-        })
         .then(castEl => {
           return castEl.cast.map(({ id, name, character, profile_path }) => ({
             id,

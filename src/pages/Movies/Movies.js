@@ -18,12 +18,6 @@ const Movies = () => {
     const fetchSearchMovie = () => {
       setIsLoading(true);
       getSearchMovie(newQuery)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(response.status);
-          }
-          return response.json();
-        })
         .then(movies => {
           return movies.results.map(({ id, title }) => ({
             id,
